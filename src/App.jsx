@@ -22,6 +22,7 @@ function AppInner() {
      Every .dark selector in index.css now works automatically
      across the entire app — no per-component fixes needed. ── */
   useEffect(() => {
+    // Apply theme once at the document root so every CSS token works consistently
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 

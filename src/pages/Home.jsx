@@ -66,11 +66,11 @@ export default function Home({ setActive }) {
         {/* Monthly Budget Card */}
         <div className="glass" style={{ borderRadius: 16, padding: '20px', marginTop: 20, marginBottom: -60, position: 'relative', zIndex: 10 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-            <span style={{ color: '#64748b', fontSize: 13, fontWeight: 600 }}>Total Budget</span>
-            <span style={{ color: '#64748b', fontSize: 13, fontWeight: 600 }}>Remaining</span>
+            <span style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Total Budget</span>
+            <span style={{ color: 'var(--text-secondary)', fontSize: 13, fontWeight: 600 }}>Remaining</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-            <span style={{ color: '#1a1a2e', fontSize: 26, fontWeight: 800 }}>
+            <span style={{ color: 'var(--text-primary)', fontSize: 26, fontWeight: 800 }}>
               <AnimatedCounter value={state.totalBudget} />
             </span>
             <span style={{ color: '#4ECDC4', fontSize: 22, fontWeight: 700 }}>
@@ -83,7 +83,7 @@ export default function Home({ setActive }) {
               background: budgetPct > 90 ? '#e74c3c' : budgetPct > 75 ? '#f39c12' : '#6C63FF'
             }} />
           </div>
-          <p style={{ color: '#94a3b8', fontSize: 12, margin: '6px 0 0' }}>{budgetPct}% Used</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: 12, margin: '6px 0 0' }}>{budgetPct}% Used</p>
         </div>
       </div>
 
@@ -94,14 +94,14 @@ export default function Home({ setActive }) {
             borderRadius: 12, padding: '12px 16px', marginBottom: 16,
             borderLeft: `4px solid ${topInsight.type === 'danger' ? '#e74c3c' : topInsight.type === 'warning' ? '#f39c12' : '#6C63FF'}`
           }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#64748b', marginBottom: 4 }}>💡 SMART INSIGHT</div>
-            <p style={{ margin: 0, fontSize: 13, color: '#1a1a2e', fontWeight: 500 }}>{topInsight.text}</p>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 4 }}>💡 SMART INSIGHT</div>
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--text-primary)', fontWeight: 500 }}>{topInsight.text}</p>
           </div>
         )}
 
         {/* Monthly Summary */}
         <div className="glass card-hover" style={{ borderRadius: 16, padding: 16, marginBottom: 16 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: '#64748b', marginBottom: 12 }}>📅 This Month</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-secondary)', marginBottom: 12 }}>📅 This Month</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
             {[
               { label: 'Income', value: state.income, color: '#2ecc71' },
@@ -112,7 +112,7 @@ export default function Home({ setActive }) {
                 <div style={{ fontSize: 13, fontWeight: 700, color: item.color }}>
                   <AnimatedCounter value={item.value} />
                 </div>
-                <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>{item.label}</div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{item.label}</div>
               </div>
             ))}
           </div>
@@ -121,8 +121,8 @@ export default function Home({ setActive }) {
         {/* Donut + Legend */}
         <div className="glass card-hover" style={{ borderRadius: 16, padding: 16, marginBottom: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-            <span style={{ fontWeight: 700, fontSize: 14, color: '#64748b' }}>📊 Expense Overview</span>
-            <span style={{ fontSize: 12, color: '#94a3b8' }}>This Month</span>
+            <span style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-secondary)' }}>📊 Expense Overview</span>
+            <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>This Month</span>
           </div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <DonutChart data={donutData} size={160} />
@@ -131,9 +131,9 @@ export default function Home({ setActive }) {
                 <div key={d.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <div style={{ width: 8, height: 8, borderRadius: 2, background: d.color, flexShrink: 0 }} />
-                    <span style={{ fontSize: 12, color: '#64748b' }}>{d.label}</span>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>{d.label}</span>
                   </div>
-                  <span style={{ fontSize: 12, fontWeight: 600, color: '#1a1a2e' }}>{fmt(d.value)}</span>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-primary)' }}>{fmt(d.value)}</span>
                 </div>
               ))}
             </div>
@@ -144,10 +144,10 @@ export default function Home({ setActive }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
           {/* Health */}
           <div className="glass card-hover" style={{ borderRadius: 16, padding: 14 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8 }}>💚 Financial Health</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 8 }}>💚 Financial Health</div>
             <div style={{ fontSize: 28, fontWeight: 800, color: healthColor }}>
               <AnimatedCounter value={healthScore} prefix="" />
-              <span style={{ fontSize: 14, color: '#94a3b8' }}>/100</span>
+              <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>/100</span>
             </div>
             <span style={{ fontSize: 11, fontWeight: 700, color: 'white', background: healthColor, borderRadius: 6, padding: '2px 8px', display: 'inline-block', marginTop: 4 }}>
               {healthStatus}
@@ -156,11 +156,11 @@ export default function Home({ setActive }) {
 
           {/* Savings Goal */}
           <div className="glass card-hover" style={{ borderRadius: 16, padding: 14 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: '#64748b', marginBottom: 8 }}>🎯 Savings Goal</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-secondary)', marginBottom: 8 }}>🎯 Savings Goal</div>
             <div style={{ fontSize: 18, fontWeight: 800, color: '#6C63FF' }}>
               <AnimatedCounter value={savings} />
             </div>
-            <div style={{ fontSize: 11, color: '#94a3b8', margin: '4px 0' }}>of {fmt(state.savingsGoal)}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)', margin: '4px 0' }}>of {fmt(state.savingsGoal)}</div>
             <div className="progress-bar" style={{ height: 6 }}>
               <div className="progress-fill" style={{ width: `${savingsPct}%`, background: '#6C63FF' }} />
             </div>
@@ -170,14 +170,14 @@ export default function Home({ setActive }) {
 
         {/* Forecast */}
         <div className="glass card-hover" style={{ borderRadius: 16, padding: 16, marginBottom: 16 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: '#64748b', marginBottom: 12 }}>📈 Spending Forecast</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-secondary)', marginBottom: 12 }}>📈 Spending Forecast</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             <div>
-              <div style={{ fontSize: 11, color: '#94a3b8' }}>Expected Spending</div>
-              <div style={{ fontSize: 18, fontWeight: 700, color: '#1a1a2e' }}>{fmt(forecast)}</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Expected Spending</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)' }}>{fmt(forecast)}</div>
             </div>
             <div>
-              <div style={{ fontSize: 11, color: '#94a3b8' }}>Expected Savings</div>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Expected Savings</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: forecastSavings >= 0 ? '#2ecc71' : '#e74c3c' }}>
                 {fmt(forecastSavings)}
               </div>
@@ -190,7 +190,7 @@ export default function Home({ setActive }) {
 
         {/* Quick Actions */}
         <div className="glass" style={{ borderRadius: 16, padding: 16, marginBottom: 16 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: '#64748b', marginBottom: 12 }}>⚡ Quick Action</div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-secondary)', marginBottom: 12 }}>⚡ Quick Action</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
             {[
               { label: 'Add Expense', icon: '➕', color: '#6C63FF', action: () => setShowAddExpense(true) },
@@ -213,12 +213,12 @@ export default function Home({ setActive }) {
         {/* Recent Expenses */}
         <div className="glass" style={{ borderRadius: 16, padding: 16, marginBottom: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-            <span style={{ fontWeight: 700, fontSize: 14, color: '#64748b' }}>🧾 Recent Expenses</span>
+            <span style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-secondary)' }}>🧾 Recent Expenses</span>
             <button onClick={() => setActive('expenses')} style={{ fontSize: 12, color: '#6C63FF', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 600 }}>See All</button>
           </div>
 
           {recentExpenses.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '24px', color: '#94a3b8' }}>
+            <div style={{ textAlign: 'center', padding: '24px', color: 'var(--text-muted)' }}>
               <div style={{ fontSize: 40 }}>📭</div>
               <p style={{ margin: '8px 0 0', fontSize: 13 }}>No expenses yet.<br />Tap + to add your first expense.</p>
             </div>
@@ -227,7 +227,7 @@ export default function Home({ setActive }) {
               {recentExpenses.map(exp => (
                 <div key={exp.id} className="card-hover" style={{
                   display: 'flex', alignItems: 'center', gap: 12,
-                  padding: '10px 12px', background: '#f8fafc', borderRadius: 12
+                  padding: '10px 12px', background: 'var(--card-bg)', borderRadius: 12
                 }}>
                   <div style={{
                     width: 40, height: 40, borderRadius: 12, flexShrink: 0,
@@ -237,8 +237,8 @@ export default function Home({ setActive }) {
                     {CATEGORY_ICONS[exp.category] || '📦'}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 600, fontSize: 14, color: '#1a1a2e', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{exp.name}</div>
-                    <div style={{ fontSize: 12, color: '#94a3b8' }}>{fmtDate(exp.date)}</div>
+                    <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{exp.name}</div>
+                    <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{fmtDate(exp.date)}</div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <div style={{ fontWeight: 700, color: '#e74c3c', fontSize: 14 }}>-{fmt(exp.amount)}</div>
