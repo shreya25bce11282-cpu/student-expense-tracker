@@ -79,10 +79,10 @@ export default function Expenses() {
 
         {/* Expense list */}
         {filtered.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '48px 24px', color: '#94a3b8' }}>
+          <div style={{ textAlign: 'center', padding: '48px 24px', color: 'var(--text-muted)' }}>
             <div style={{ fontSize: 56 }}>📭</div>
-            <p style={{ margin: '12px 0 0', fontSize: 15, fontWeight: 600 }}>No expenses yet.</p>
-            <p style={{ margin: '4px 0 0', fontSize: 13 }}>Tap + to add your first expense.</p>
+            <p style={{ margin: '12px 0 0', fontSize: 15, fontWeight: 600, color: 'var(--text-primary)' }}>No expenses yet.</p>
+            <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--text-muted)' }}>Tap + to add your first expense.</p>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -95,18 +95,18 @@ export default function Expenses() {
                 }}>
                   {CATEGORY_ICONS[exp.category] || '📦'}
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 600, fontSize: 15, color: '#1a1a2e', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{exp.name}</div>
-                  <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 2 }}>
-                    {exp.category} · {fmtDate(exp.date)}
-                    {exp.notes && <span> · {exp.notes}</span>}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{exp.name}</div>
+                    <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>
+                      {exp.category} · {fmtDate(exp.date)}
+                      {exp.notes && <span> · {exp.notes}</span>}
+                    </div>
                   </div>
-                </div>
-                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
                   <div style={{ fontWeight: 700, color: '#e74c3c', fontSize: 16 }}>-{fmt(exp.amount)}</div>
                   <div style={{ display: 'flex', gap: 6, marginTop: 6 }}>
                     <button onClick={() => setEditExp(exp)} aria-label="Edit expense"
-                      style={{ fontSize: 13, color: '#6C63FF', background: '#6C63FF15', border: 'none', borderRadius: 8, padding: '4px 10px', cursor: 'pointer', fontWeight: 600 }}>
+                      style={{ fontSize: 13, color: 'var(--primary)', background: '#6C63FF15', border: 'none', borderRadius: 8, padding: '4px 10px', cursor: 'pointer', fontWeight: 600 }}>
                       Edit
                     </button>
                     <button onClick={() => handleDelete(exp.id)} aria-label="Delete expense"
