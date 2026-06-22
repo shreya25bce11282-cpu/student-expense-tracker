@@ -182,7 +182,7 @@ This project was developed for the **Design2Code 2.0 Frontend Competition**.
 ---
 
 ## Live Demo
-https://your-deployment-link.com
+student-expense-tracker-zeta.vercel.app
 
 ## Design Reference
 [https://figma-link.com](https://www.figma.com/design/qj55BVrmsIgc9m9wN4HNv3/Student-Expense-and-budget-Tracker?m=auto&t=adkJjeiaClkjSLab-6)
